@@ -3,8 +3,9 @@ import tmdb from "./tmbd";
 import ListMovies from "./interfaces/ListMoviesInterface";
 
 import "./App.css";
-import { MovieRow } from "./components/movieRow/MovieRow";
-import { FeatureMovie } from "./components/featureMovie/FeatureMovie";
+import { MovieRow } from "./components/movieRow";
+import { FeatureMovie } from "./components/featureMovie";
+import { TabHeader } from "./components/tabHeader";
 
 function App() {
   let [listMovies, setListMovies] = useState<ListMovies[]>([]);
@@ -13,7 +14,8 @@ function App() {
   useEffect(() => {
     const loadAll = async () => {
       let list = await tmdb.getHomeList();
-      setListMovies((state) => list);
+      listMovies = list;
+      setListMovies(listMovies);
 
       let originals = list.filter((item) => item.slug === "originals");
       let randomChosen = Math.floor(
@@ -29,6 +31,7 @@ function App() {
 
   return (
     <div className="page">
+      <TabHeader />
       {featureData && <FeatureMovie item={featureData} />}
       <section className="lists">
         {listMovies.map((thisList, key) => (

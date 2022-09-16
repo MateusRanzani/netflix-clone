@@ -69,3 +69,7 @@ body {
 
   font-family: "Netflix Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+.lists {
+  margin-top: -100px;
+}
