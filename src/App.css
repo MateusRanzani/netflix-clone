@@ -77,6 +77,20 @@ body {
 footer {
   color: #5a5959;
   user-select: none;
-  margin : 15px 0 ;
+  margin: 15px 0;
   text-align: center;
+}
+
+.css-18lrjg1-MuiCircularProgress-root {
+  display: inline-block;
+  color: red !important;
+  -webkit-animation: animation-61bdi0 1.4s linear infinite;
+  animation: animation-61bdi0 1.4s linear infinite;
+}
+
+.loading {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

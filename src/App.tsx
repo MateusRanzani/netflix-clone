@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import tmdb from "./tmbd";
 import ListMovies from "./interfaces/ListMoviesInterface";
+import CircularProgress from "@mui/material/CircularProgress";
 
 import "./App.css";
 import { MovieRow } from "./components/movieRow";
@@ -11,6 +12,16 @@ function App() {
   let [listMovies, setListMovies] = useState<ListMovies[]>([]);
   let [featureData, setFeatureData] = useState({});
   let [blackHeaderTab, setBlackHeaderTab] = useState(false);
+
+  const isEmptyObj = (obj: any) => {
+    for (var prop in obj) {
+      if (obj.hasOwnProperty(prop)) {
+        return false;
+      }
+    }
+
+    return true;
+  };
 
   useEffect(() => {
     const loadAll = async () => {
@@ -24,14 +35,14 @@ function App() {
       );
       let chosen = originals[0].items.results[randomChosen];
       let choosenInfo = await tmdb.getMovieInfo(chosen.id, "tv");
-      setFeatureData((state) => choosenInfo);
+      featureData = choosenInfo;
+      setFeatureData(featureData);
     };
 
     loadAll();
   }, []);
 
   useEffect(() => {
-    console.log(window.scrollY);
     const scrollListener = () => {
       if (window.scrollY > 10) {
         setBlackHeaderTab((state) => true);
@@ -48,6 +59,11 @@ function App() {
 
   return (
     <div className="page">
+      {listMovies.length <= 0 && isEmptyObj(featureData) && (
+        <div className="loading">
+          <CircularProgress />
+        </div>
+      )}
       <TabHeader black={blackHeaderTab} />
       {featureData && <FeatureMovie item={featureData} />}
       <section className="lists">
@@ -57,9 +73,7 @@ function App() {
           </div>
         ))}
       </section>
-      <footer>
-        Desenvolvido por Mateus Ranzani utilizando The Movie DB
-      </footer>
+      <footer>Desenvolvido por Mateus Ranzani utilizando The Movie DB</footer>
     </div>
   );
 }
