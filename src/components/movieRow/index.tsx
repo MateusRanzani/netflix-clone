@@ -1,5 +1,4 @@
 import React from "react";
-import ListMovies from "../../interfaces/ListMoviesInterface";
 import "./movieRow.css";
 
 export const MovieRow = ({ title, items }: any) => {
