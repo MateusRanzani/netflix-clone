@@ -73,3 +73,10 @@ body {
 .lists {
   margin-top: -100px;
 }
+
+footer {
+  color: #5a5959;
+  user-select: none;
+  margin : 15px 0 ;
+  text-align: center;
+}

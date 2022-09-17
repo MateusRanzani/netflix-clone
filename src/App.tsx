@@ -10,6 +10,7 @@ import { TabHeader } from "./components/tabHeader";
 function App() {
   let [listMovies, setListMovies] = useState<ListMovies[]>([]);
   let [featureData, setFeatureData] = useState({});
+  let [blackHeaderTab, setBlackHeaderTab] = useState(false);
 
   useEffect(() => {
     const loadAll = async () => {
@@ -29,9 +30,25 @@ function App() {
     loadAll();
   }, []);
 
+  useEffect(() => {
+    console.log(window.scrollY);
+    const scrollListener = () => {
+      if (window.scrollY > 10) {
+        setBlackHeaderTab((state) => true);
+      } else {
+        setBlackHeaderTab((state) => false);
+      }
+    };
+
+    window.addEventListener("scroll", scrollListener);
+    return () => {
+      window.removeEventListener("scroll", scrollListener);
+    };
+  }, []);
+
   return (
     <div className="page">
-      <TabHeader />
+      <TabHeader black={blackHeaderTab} />
       {featureData && <FeatureMovie item={featureData} />}
       <section className="lists">
         {listMovies.map((thisList, key) => (
@@ -40,6 +57,9 @@ function App() {
           </div>
         ))}
       </section>
+      <footer>
+        Desenvolvido por Mateus Ranzani utilizando The Movie DB
+      </footer>
     </div>
   );
 }
