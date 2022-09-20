@@ -5,7 +5,7 @@ export const TabHeader = ({ black }: any) => {
     <header className={black ? "black" : ""}>
       <div className="header--logo">
         <a href="">
-          <img src="/assets/MATFLIX.svg" alt="matflix" />
+          <img src="/assets/matflix.svg" alt="matflix" />
         </a>
       </div>
       <div className="header--user">
