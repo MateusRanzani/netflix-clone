@@ -1,3 +1,15 @@
+## Images from the project
+  <p align="center">
+    <img src="https://user-images.githubusercontent.com/92117219/191149265-59aa5ad4-3bec-4a88-bf2c-8ae028b811cb.png">
+  </p>   
+<hr>
+  <p align="center">
+    <img src="https://user-images.githubusercontent.com/92117219/191149639-11d3c99d-1a07-4285-8958-260066f9f86e.png">
+</p> 
+
+<br><br>
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
