@@ -13,33 +13,33 @@ export default {
       `/discover/tv?with_network=213&language=pt-BR&api_key=${API_KEY}`
     );
 
-    const trending =  await basicFetch(
+    const trending = await basicFetch(
       `/trending/all/week?language=pt-BR&api_key=${API_KEY}`
-    )
+    );
 
     const toprated = await basicFetch(
       `/movie/top_rated?language=pt-BR&api_key=${API_KEY}`
-    )
+    );
 
-    const action =  await basicFetch(
+    const action = await basicFetch(
       `/discover/movie?with_genres=28&language=pt-BR&api_key=${API_KEY}`
-    )
+    );
 
     const comedy = await basicFetch(
       `/discover/movie?with_genres=35&language=pt-BR&api_key=${API_KEY}`
-    )
+    );
 
-    const horror =  await basicFetch(
+    const horror = await basicFetch(
       `/discover/movie?with_genres=27&language=pt-BR&api_key=${API_KEY}`
-    )
+    );
 
-    const romance =  await basicFetch(
+    const romance = await basicFetch(
       `/discover/movie?with_genres=10749&language=pt-BR&api_key=${API_KEY}`
-    )
+    );
 
     const documentary = await basicFetch(
       `/discover/movie?with_genres=99&language=pt-BR&api_key=${API_KEY}`
-    )
+    );
 
     return [
       {
@@ -50,37 +50,37 @@ export default {
       {
         slug: "trending",
         title: "Recomendados para você",
-        items: trending
+        items: trending,
       },
       {
         slug: "toprated",
         title: "Em alta",
-        items: toprated
+        items: toprated,
       },
       {
         slug: "Action",
         title: "Ação",
-        items:action
+        items: action,
       },
       {
         slug: "comedy",
         title: "Comédia",
-        items: comedy
+        items: comedy,
       },
       {
         slug: "horror",
         title: "Terror",
-        items:horror
+        items: horror,
       },
       {
         slug: "romance",
         title: "Romance",
-        items: romance
+        items: romance,
       },
       {
         slug: "documentary",
         title: "Documentários",
-        items: documentary
+        items: documentary,
       },
     ];
   },
